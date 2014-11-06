@@ -35,6 +35,7 @@
 #define __S3C64XX_H__
 
 #if defined(CONFIG_SYNC_MODE) && defined(CONFIG_S3C6400)
+defined(CONFIG_S3C6410)  		/*20141030_Jorseph*/
 #error CONFIG_SYNC_MODE unavailable on S3C6400, please, fix your configuration!
 #endif
 

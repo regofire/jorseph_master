@@ -811,10 +811,9 @@ Richard Woodruff <r-woodruff2@ti.com>
 
 	omap2420h4	ARM1136EJS
 
-Alex Züpke <azu@sysgo.de>
+Jorseph <Jorseph0418@msn.com>
 
-	lart		SA1100
-	dnp1110		SA1110
+	TINT6410		ARM1176JZF-S(S3C6410)
 
 -------------------------------------------------------------------------
 

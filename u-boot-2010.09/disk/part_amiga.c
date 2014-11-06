@@ -2,7 +2,7 @@
  * (C) Copyright 2001
  * Hans-Joerg Frieden, Hyperion Entertainment
  * Hans-JoergF@hyperion-entertainment.com
- *
+ *22
  * See file CREDITS for list of people who contributed to this
  * project.
  *

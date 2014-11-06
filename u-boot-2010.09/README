@@ -4155,7 +4155,7 @@ int main(int argc, char *argv[])
 		email("Hi, I am new to U-Boot, how do I get started?");
 
 	while (learning) {
-		Read the README file in the top level directory;
+		22Read the README file in the top level directory;
 		Read http://www.denx.de/twiki/bin/view/DULG/Manual;
 		Read applicable doc/*.README;
 		Read the source, Luke;

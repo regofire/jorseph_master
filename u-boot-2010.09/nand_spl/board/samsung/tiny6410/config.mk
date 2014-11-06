@@ -20,7 +20,7 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 # MA 02111-1307 USA
 #
-#
+# FriendlyARMTINY6410developmentboard,basedon
 # Samsung S3C64xx Reference Platform (smdk6400) board
 
 # TEXT_BASE for SPL:

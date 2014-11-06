@@ -1,7 +1,10 @@
 #
-# (C) Copyright 2000-2006
+# (C) Copyright 2000, 2001, 2002
 # Wolfgang Denk, DENX Software Engineering, wd@denx.de.
-# jj
+#
+# (C) Copyright 2008
+# Guennadi Liakhovetki, DENX Software Engineering, <lg@denx.de>
+#
 # See file CREDITS for list of people who contributed to this
 # project.
 #
@@ -20,19 +23,35 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 # MA 02111-1307 USA
 #
-#
 
-subdirs-$(CONFIG_CMD_CRAMFS) := cramfs
-subdirs-$(CONFIG_CMD_EXT2) += ext2
-subdirs-$(CONFIG_CMD_FAT) += fat
-subdirs-$(CONFIG_CMD_FDOS) += fdos
-subdirs-$(CONFIG_CMD_JFFS2) += jffs2
-subdirs-$(CONFIG_CMD_REISER) += reiserfs
-subdirs-$(CONFIG_YAFFS2) += yaffs2
-subdirs-$(CONFIG_CMD_UBIFS) += ubifs
+include $(TOPDIR)/config.mk
 
-SUBDIRS	:= $(subdirs-y)
+LIB	= $(obj)lib$(BOARD).a
 
-$(obj).depend all:
-	@for dir in $(SUBDIRS) ; do \
-		$(MAKE) -C $$dir $@ ; done
+COBJS-y	:= tiny6410.o
+SOBJS	:= lowlevel_init.o
+
+#COBJS-y	:= smdk6400.o
+#SOBJS	:= lowlevel_init.o
+
+SRCS    := $(SOBJS:.o=.S) $(COBJS-y:.o=.c)
+OBJS	:= $(addprefix $(obj),$(COBJS-y))
+SOBJS	:= $(addprefix $(obj),$(SOBJS))
+
+$(LIB):	$(obj).depend $(SOBJS) $(OBJS)
+	$(AR) $(ARFLAGS) $@ $(SOBJS) $(OBJS)
+
+clean:
+	rm -f $(SOBJS) $(OBJS)
+
+distclean:	clean
+	rm -f $(LIB) core *.bak $(obj).depend
+
+#########################################################################
+
+# defines $(obj).depend target
+include $(SRCTREE)/rules.mk
+
+sinclude $(obj).depend
+
+#########################################################################
